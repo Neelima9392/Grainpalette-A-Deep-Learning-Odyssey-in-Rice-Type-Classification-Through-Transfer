@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About GrainPalette</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            background-color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        nav {
+            background-color: #000;
+            padding: 10px 0;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+        }
+
+        nav ul li a:hover {
+            color: #2ecc71;
+        }
+
+        .details-container {
+            max-width: 900px;
+            margin: auto;
+            padding: 60px 40px;
+            background-color: #ffffff;
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+
+        p, ul {
+            font-size: 18px;
+            color: #34495e;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 40px;
+            color: #2980b9;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .contact-section {
+            margin-top: 80px;
+            text-align: center;
+        }
+
+        .contact-boxes {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .contact-box {
+            background-color: #f9f9f9;
+            padding: 20px;
+            margin: 10px;
+            width: 250px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        .contact-box h3 {
+            color: #2ecc71;
+            margin-bottom: 10px;
+        }
+
+        .contact-box p,
+        .contact-box a {
+            margin: 0;
+            font-size: 16px;
+            color: #34495e;
+            text-decoration: none;
+        }
+
+        .contact-box a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .contact-form textarea {
+            grid-column: span 2;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        .send-btn {
+            grid-column: span 2;
+            text-align: center;
+        }
+
+        .send-btn button {
+            background-color: #2ecc71;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .send-btn button:hover {
+            background-color: #27ae60;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ✅ NAVIGATION BAR -->
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('details') }}">About</a></li>
+            <li><a href="{{ url_for('details') }}#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="details-container">
+        <h1>About GrainPalette – Rice Type Classifier</h1>
+
+        <p><strong>GrainPalette</strong> is a deep learning–powered rice classification system. It uses image recognition through Convolutional Neural Networks (CNNs) and MobileNet (transfer learning) to identify the rice grain type from a photo.</p>
+
+        <p>The purpose of this project is to assist farmers, agri-scientists, and researchers by:</p>
+
+        <ul>
+            <li>Identifying rice types quickly and accurately</li>
+            <li>Helping with proper irrigation and fertilizer decisions</li>
+            <li>Enabling data-driven agricultural practices</li>
+        </ul>
+
+        <p>The model was trained on high-quality rice grain images, built and optimized using Google Colab with TensorFlow and Keras. It is deployed as a Flask web app, allowing users to upload grain images and receive instant predictions.</p>
+
+        <p>This innovation empowers precision farming and enhances grain quality monitoring in a scalable, automated way.</p>
+
+        <!-- ✅ CONTACT US SECTION -->
+        <div class="contact-section" id="contact">
+            <h2>Contact Us</h2>
+
+            <div class="contact-boxes">
+                <div class="contact-box">
+                    <h3>Our Address</h3>
+                    <p>A108 Mangalam, Tirupati, India</p>
+                </div>
+                <div class="contact-box">
+                    <h3>Email Us</h3>
+                    <p>thushyapramoadh1432@gmail.com</p>
+                </div>
+                <div class="contact-box">
+                    <h3>Call Us</h3>
+                    <p>+91 9110739961</p>
+                </div>
+                <div class="contact-box">
+                    <h3>GitHub</h3>
+                    <a href="https://github.com/ThushyaPramoadh" target="_blank">github.com/ThushyaPramoadh</a>
+                </div>
+            </div>
+
+            <form class="contact-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <input type="text" placeholder="Subject" required>
+                <textarea rows="5" placeholder="Message" required></textarea>
+                <div class="send-btn">
+                    <button type="submit">Send Message</button>
+                </div>
+            </form>
+        </div>
+
+        <a class="back-link" href="{{ url_for('index') }}">⟵ Back to Home</a>
+    </div>
+</body>
+</html>
+

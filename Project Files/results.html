@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GrainPalette – Prediction Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .result-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .result-card {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            max-width: 700px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .result-card h1 {
+            color: #2c3e50;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .result-card p {
+            font-size: 20px;
+            color: #34495e;
+            margin: 10px 0;
+        }
+
+        .result-card img {
+            margin-top: 25px;
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 24px;
+            background-color: #2980b9;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-link:hover {
+            background-color: #1c6690;
+        }
+    </style>
+</head>
+<body>
+    <div class="result-wrapper">
+        <div class="result-card">
+            <h1>Prediction Result</h1>
+            <p><strong>Predicted Class:</strong> {{ prediction }}</p>
+            <p><strong>Confidence:</strong> {{ confidence }}%</p>
+
+            {% if image_path %}
+                <img src="{{ image_path }}" alt="Uploaded Rice Image">
+            {% endif %}
+
+            <a class="back-link" href="{{ url_for('index') }}">⟵ Back to Home</a>
+        </div>
+    </div>
+</body>
+</html>
